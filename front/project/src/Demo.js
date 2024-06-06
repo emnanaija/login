@@ -10,9 +10,14 @@ const Demo = () => {
   const handleSubmit = async () => {
     setMessage(''); // Réinitialiser le message
     try {
+      // Validation des champs
+      if (!username || !password) {
+        setMessage('Veuillez remplir tous les champs');
+        return;
+      }
+
       // Effectuer une requête POST à votre endpoint de connexion
-      console.log('Tentative de connexion avec les identifiants:', { username, password });
-      const response = await fetch('http://localhost:3000/auth/login', {
+      const response = await fetch('/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,23 +28,19 @@ const Demo = () => {
         }),
       });
 
-      // Vérifier si la réponse est OK
-      if (!response.ok) {
-        // Si la réponse est une erreur, extraire le message d'erreur de la réponse JSON
-        const errorMessage = await response.json();
-        throw new Error(errorMessage.message);
-      }
-
       // Traiter la réponse du serveur
       const responseData = await response.json();
-      console.log('Réponse du serveur:', responseData);
-
-      // Connexion réussie, rediriger l'utilisateur vers une page sécurisée ou afficher un message de succès
-      setMessage('Connexion réussie');
+      if (response.ok) {
+        // Connexion réussie
+        setMessage('Connexion réussie');
+      } else {
+        // Échec de la connexion
+        setMessage(`Échec de la connexion: ${responseData.message}`);
+      }
     } catch (error) {
-      // Gérer les erreurs
+      // Erreur lors de la connexion
       console.error('Erreur lors de la connexion:', error);
-      setMessage(`Échec de la connexion: ${error.message}`);
+      setMessage('Erreur lors de la connexion. Veuillez réessayer plus tard.');
     }
   };
 
