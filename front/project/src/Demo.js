@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import LoginPage, { Submit, Logo, Username, Password } from '@react-login-page/page5';
+import LoginPage, { Submit, Logo, Username, Password , Title } from '@react-login-page/page5';
 import logo from './bt.png'; // Importez votre image PNG
 
 const Demo = () => {
@@ -46,22 +46,24 @@ const Demo = () => {
 
   return (
     <LoginPage style={css}>
-      <Logo>
-        <img src={logo} alt="Logo" style={{ width: 150, height: 200 }} />
-      </Logo>
-      <Username
-        placeholder="Nom d'utilisateur"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <Password
-        placeholder="Mot de passe"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <Submit onClick={handleSubmit}>Connexion</Submit>
-      {message && <p>{message}</p>}
-    </LoginPage>
+    <Logo>
+      <img src={logo} alt="Logo" style={{ width: 150, height: 200 }} />
+    </Logo>
+    <Username
+      placeholder="Nom d'utilisateur"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+    />
+    <Password
+      placeholder="Mot de passe"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+    />
+    <Submit onClick={handleSubmit}>Connexion</Submit>
+    <Title visible={false}>Login</Title>
+    {message && <p>{message}</p>}
+  </LoginPage>
+  
   );
 };
 
