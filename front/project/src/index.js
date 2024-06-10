@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './Pages/App'; // Chemin relatif vers App.js
+import reportWebVitals from './Reports/reportWebVitals'; // Chemin relatif vers reportWebVitals.js
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

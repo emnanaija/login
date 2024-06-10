@@ -28,7 +28,7 @@ body {
 .login-page5 {
   width: 100%;
   height: 100%;
-  background-image: url('../src/bg2.jpg'); /* Utilisation de background-image au lieu de --background-image */
+  background-image: url('../src/Assets/bg2.jpg'); /* Utilisation de background-image au lieu de --background-image */
   background-size: cover;
   background-position: center;
   --login-color: #fff;
