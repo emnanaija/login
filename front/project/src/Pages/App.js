@@ -6,7 +6,9 @@ import Home from './Home';
 import Layout from '../Layouts/Layout';
 import '../App.css';
 import '../index.css';
+import AccountFormPage from './AccountFormPage'; // Importez le composant de la page de formulaire
 
+import LoginPage from './LoginPage'; // Importez la page de connexion
 
 function App() {
   return (
@@ -15,6 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Demo />} />
           <Route path="/home" element={<Layout><Home /></Layout>} />
+          <Route path="/add-account" element={<Layout><AccountFormPage /></Layout>} />
+          <Route path="/login" element={<LoginPage />} /> 
+
+
         </Routes>
       </div>
     </Router>

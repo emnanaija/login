@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const authRoutes = require('./authRoutes');
+const authRoutes = require('./Routes/authRoutes');
+const accountRoutes = require('./Routes/accountRoutes'); // Importez les routes des comptes
+
 
 const app = express();
 
@@ -12,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRoutes);
+app.use('/accounts', accountRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

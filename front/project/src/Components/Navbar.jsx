@@ -25,7 +25,7 @@ const Navbar = () => {
 
 
         {/* Lien Logout */}
-        <a href="/" className="flex items-center mr-4 hover:text-blue-100">
+        <a href="/login" className="flex items-center mr-4 hover:text-blue-100">
           <span className="inline-flex mr-1">
             {/* Icône de logout */}
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
