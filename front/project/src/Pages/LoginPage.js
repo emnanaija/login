@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Assets/styles.css'; // Assurez-vous d'avoir votre fichier CSS importé correctement
 import { ReactComponent as AccountCircleIcon } from '../Assets/account.svg'; // Importez l'icône SVG
 import { ReactComponent as LockIcon } from '../Assets/lock.svg'; // Importez l'icône SVG pour "lock"
-import logo from '../Assets/bt.png'; // Importez votre logo
+import logo from '../Assets/logoo.png'; // Importez votre logo
 import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
@@ -39,7 +39,7 @@ function LoginPage() {
       <div className="logo-container">
         <img src={logo} alt="Logo" className="logo" />
       </div>
-      <h2>Banque de Tunisie</h2>
+      <h2>E-bank  </h2>
       <h3>Bienvenue!</h3>
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="textbox">

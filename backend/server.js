@@ -1,20 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./Routes/authRoutes');
-const accountRoutes = require('./Routes/accountRoutes'); // Importez les routes des comptes
-
+const typeTauxRoutes = require('./Routes/typeTauxRoutes'); // Importez les routes pour typetaux
 
 const app = express();
 
 app.use(bodyParser.json());
 
-// Définir une route pour les requêtes GET vers "/"
 app.get('/', (req, res) => {
   res.send('Welcome to the backend server');
 });
 
 app.use('/auth', authRoutes);
-app.use('/accounts', accountRoutes);
+app.use('/typetaux', typeTauxRoutes); // Utilisez les routes pour typetaux
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
