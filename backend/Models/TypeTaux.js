@@ -13,6 +13,7 @@ const createTypeTaux = async (type, taux) => {
         throw error;
     }
 };
+
 const getTypeTauxList = async () => {
     try {
         const res = await pool.query(
@@ -24,8 +25,26 @@ const getTypeTauxList = async () => {
         throw error;
     }
 };
+
+const deleteTypeTaux = async (id) => {
+    try {
+        const res = await pool.query(
+            'DELETE FROM typetaux WHERE id = $1 RETURNING *',
+            [id]
+        );
+        if (res.rowCount === 0) {
+            throw new Error(`Aucun type de taux trouvé avec l'ID ${id}`);
+        }
+        console.log(`Suppression réussie du type de taux avec l'ID ${id}`);
+        return res.rows[0];
+    } catch (error) {
+        console.error(`Erreur lors de la suppression du type de taux avec l'ID ${id} :`, error);
+        throw error;
+    }
+};
+
 module.exports = {
     createTypeTaux,
-    getTypeTauxList
-
+    getTypeTauxList,
+    deleteTypeTaux
 };

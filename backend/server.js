@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./Routes/authRoutes');
-const typeTauxRoutes = require('./Routes/typeTauxRoutes'); // Importez les routes pour typetaux
+const typeTauxRoutes = require('./Routes/TypeTauxRoutes'); // Importez les routes pour typetaux
 
 const app = express();
 

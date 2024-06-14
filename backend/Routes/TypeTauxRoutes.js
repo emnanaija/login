@@ -33,4 +33,21 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+// Route pour supprimer un type de taux spécifique
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        // Utilisez la fonction deleteTypeTaux du modèle pour supprimer le type de taux
+        const deletedTypeTaux = await TypeTaux.deleteTypeTaux(id);
+        
+        // Envoyez l'objet supprimé en réponse
+        res.status(200).json({ message: `Type de taux avec l'ID ${id} supprimé avec succès`, typeTaux: deletedTypeTaux });
+    } catch (error) {
+        // En cas d'erreur, envoyez une réponse d'erreur au client
+        console.error(`Erreur lors de la suppression du type de taux avec l'ID ${id}:`, error);
+        res.status(500).json({ message: `Erreur lors de la suppression du type de taux avec l'ID ${id}` });
+    }
+});
 module.exports = router;
