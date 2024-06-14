@@ -142,3 +142,22 @@
     width: 100px; /* Ajustez la taille de votre logo selon vos besoins */
     height: auto; /* Permet au logo de conserver ses proportions */
   }
+
+  .textbox {
+    position: relative;
+    margin-bottom: 16px; /* Ajoute de l'espace entre chaque champ */
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.875em;
+    margin-top: 0.25em;
+  }
+  
+  .auth-error {
+    color: red;
+    font-size: 1em;
+    margin-top: 1em;
+    text-align: center;
+  }
+  

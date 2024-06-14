@@ -1,6 +1,4 @@
 import React from 'react';
-
-import '../Assets/NavSidebar.css'; // Importer le fichier CSS
 import btLogo from '../Assets/logoo.png'; // Importer l'image
 
 const Navbar = () => {
@@ -10,9 +8,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full flex items-center justify-between h-20 text-white bg-blue-800 dark:bg-gray-800 z-10">
       <div className="flex items-center justify-start md:justify-center pl-3 w-14 md:w-64 h-20 border-none">
-      <img className="w-25 h-20 md:w-20 md:h-18 mr-2 rounded-md overflow-hidden" src={btLogo} alt="Logo" />
-      <span className="hidden md:block">E-bank</span>
-
+        <img className="w-20 h-18 md:w-20 md:h-18 mr-2 rounded-md overflow-hidden" src={btLogo} alt="Logo" />
+        <span className="hidden md:block">E-bank</span>
       </div>
 
       <div className="flex-grow"></div> {/* Espace flexible pour étirer le lien Logout */}
@@ -20,9 +17,6 @@ const Navbar = () => {
       <div className="flex justify-end pr-3">
         {/* Message de bienvenue avec le nom de l'utilisateur */}
         <span className="mr-4">{`Bienvenue, ${userName}!`}</span>
-
-        {/* Icône de profil */}
-
 
         {/* Lien Logout */}
         <a href="/login" className="flex items-center mr-4 hover:text-blue-100">
