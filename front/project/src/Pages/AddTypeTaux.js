@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { z } from 'zod';
+import Button from '../Components/Button'; // Assurez-vous d'importer le composant Button depuis le bon chemin
 
 const AddTypeTaux = () => {
     const navigate = useNavigate();
@@ -116,13 +117,17 @@ const AddTypeTaux = () => {
                     />
                     {tauxError && <p className="text-red-500 text-xs italic">{tauxError}</p>}
                 </div>
-                <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    {id ? 'Modifier' : 'Ajouter'}
-                </button>
+                <Button
+                    type="submit"
+                    label={id ? 'Modifier' : 'Ajouter'}
+                    className="bg-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                />
             </form>
-            <button onClick={() => navigate('/typetaux')} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                Annuler
-            </button>
+            <Button
+                onClick={() => navigate('/typetaux')}
+                label="Annuler"
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            />
         </div>
     );
 };

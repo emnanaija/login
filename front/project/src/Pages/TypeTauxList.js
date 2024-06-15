@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../Components/Button';
 
 const TypeTauxList = () => {
     const [typeTauxList, setTypeTauxList] = useState([]);
@@ -58,12 +59,11 @@ const TypeTauxList = () => {
                                 >
                                     Modifier
                                 </Link>
-                                <button
-                                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                <Button
+                                    label="Supprimer"
                                     onClick={() => handleDelete(typeTaux.id)}
-                                >
-                                    Supprimer
-                                </button>
+                                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                />
                             </td>
                         </tr>
                     ))}
