@@ -50,4 +50,40 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({ message: `Erreur lors de la suppression du type de taux avec l'ID ${id}` });
     }
 });
+
+// Récupérer un type de taux spécifique par son ID
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const typeTaux = await TypeTaux.getTypeTauxById(id);
+        res.json(typeTaux);
+    } catch (error) {
+        console.error(`Erreur lors de la récupération du type de taux avec l'ID ${id}:`, error);
+        res.status(500).json({ message: `Erreur lors de la récupération du type de taux avec l'ID ${id}` });
+    }
+});
+
+// Modifier un type de taux spécifique par son ID
+router.put('/:id', async (req, res) => {
+    const id = req.params.id;
+    const { type, taux } = req.body;
+    try {
+        const updatedTypeTaux = await TypeTaux.updateTypeTaux(id, type, taux);
+        res.json({ message: `Type de taux avec l'ID ${id} mis à jour`, updatedTypeTaux });
+    } catch (error) {
+        console.error(`Erreur lors de la modification du type de taux avec l'ID ${id}:`, error);
+        res.status(500).json({ message: `Erreur lors de la modification du type de taux avec l'ID ${id}` });
+    }
+});
+// Récupérer un type de taux spécifique par son ID
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const typeTaux = await TypeTaux.getTypeTauxById(id);
+        res.json(typeTaux);
+    } catch (error) {
+        console.error(`Erreur lors de la récupération du type de taux avec l'ID ${id}:`, error);
+        res.status(500).json({ message: `Erreur lors de la récupération du type de taux avec l'ID ${id}` });
+    }
+});
 module.exports = router;

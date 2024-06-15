@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const TypeTauxList = () => {
     const [typeTauxList, setTypeTauxList] = useState([]);
@@ -9,15 +10,11 @@ const TypeTauxList = () => {
 
     const fetchTypeTauxList = async () => {
         try {
-            console.log("Fetching type taux list...");
             const response = await fetch('/typetaux');
             if (!response.ok) {
                 throw new Error('Erreur lors de la récupération des taux');
             }
             const data = await response.json();
-            console.log("Type taux list retrieved:", data);
-                    setTypeTauxList(data); // Assurez-vous que cette fonction met à jour correctement typeTauxList
-
             setTypeTauxList(data);
         } catch (error) {
             console.error('Erreur:', error);
@@ -32,11 +29,9 @@ const TypeTauxList = () => {
             if (!response.ok) {
                 throw new Error(`Erreur lors de la suppression du type de taux avec l'ID ${id}`);
             }
-            // Refresh the list after deletion
             fetchTypeTauxList();
         } catch (error) {
             console.error('Erreur:', error);
-            // Handle error, maybe show a notification to the user
         }
     };
 
@@ -57,6 +52,12 @@ const TypeTauxList = () => {
                             <td className="px-4 py-2 border border-gray-400">{typeTaux.type}</td>
                             <td className="px-4 py-2 border border-gray-400">{typeTaux.taux}</td>
                             <td className="px-4 py-2 border border-gray-400">
+                                <Link
+                                    to={`/typetaux/${typeTaux.id}/edit`}
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                >
+                                    Modifier
+                                </Link>
                                 <button
                                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                                     onClick={() => handleDelete(typeTaux.id)}

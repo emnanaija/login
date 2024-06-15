@@ -42,9 +42,41 @@ const deleteTypeTaux = async (id) => {
         throw error;
     }
 };
-
+const updateTypeTaux = async (id, type, taux) => {
+    try {
+        const res = await pool.query(
+            'UPDATE typetaux SET type = $1, taux = $2 WHERE id = $3 RETURNING *',
+            [type, taux, id]
+        );
+        if (res.rowCount === 0) {
+            throw new Error(`Aucun type de taux trouvé avec l'ID ${id}`);
+        }
+        console.log(`Mise à jour réussie du type de taux avec l'ID ${id}`);
+        return res.rows[0];
+    } catch (error) {
+        console.error(`Erreur lors de la mise à jour du type de taux avec l'ID ${id} :`, error);
+        throw error;
+    }
+};
+const getTypeTauxById = async (id) => {
+    try {
+        const res = await pool.query(
+            'SELECT * FROM typetaux WHERE id = $1',
+            [id]
+        );
+        if (res.rows.length === 0) {
+            throw new Error(`Aucun type de taux trouvé avec l'ID ${id}`);
+        }
+        return res.rows[0];
+    } catch (error) {
+        console.error(`Erreur lors de la récupération du type de taux avec l'ID ${id} :`, error);
+        throw error;
+    }
+};
 module.exports = {
     createTypeTaux,
     getTypeTauxList,
-    deleteTypeTaux
+    deleteTypeTaux,
+    getTypeTauxById,
+    updateTypeTaux
 };

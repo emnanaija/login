@@ -20,7 +20,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} /> 
           <Route path="/add-type-taux" element={<Layout><AddTypeTaux /></Layout>} /> 
           <Route path="/typetaux" element={<Layout><TypeTauxList /></Layout>} /> 
-
+          <Route path="/typetaux/:id/edit" element={<Layout><AddTypeTaux /></Layout>} />
         </Routes>
       </div>
     </Router>
